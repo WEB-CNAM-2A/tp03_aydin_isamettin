@@ -14,9 +14,15 @@ import { SearchEngineComponent } from '../search-engine/search-engine.component'
   styleUrl: './product-catalog.component.css'
 })
 export class ProductCatalogComponent {
-  products$: Observable<Product[]>;
+  products$: Observable<Product[]> | undefined;
 
-  constructor(private productService: ProductService) {
-    this.products$ = this.productService.getProducts();
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.filterProducts({ title: '', origin: '', size: '', type: '' });
+  }
+
+  filterProducts(filterCriteria: { title: string, origin: string, size: string, type: string }) {
+    this.products$ = this.productService.filterProducts(filterCriteria.title, filterCriteria.origin, filterCriteria.size, filterCriteria.type);
   }
 }

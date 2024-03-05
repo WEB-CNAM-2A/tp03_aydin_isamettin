@@ -22,7 +22,7 @@
 
               <select id="origin" [(ngModel)]="origin" name="origin"
                 class="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50">
-                <option value="" selected>Choose</option>
+                <option value="" selected>All</option>
                 <option>France</option>
                 <option>Spain</option>
                 <option>Ireland</option>
@@ -34,7 +34,7 @@
 
               <select id="size" [(ngModel)]="size" name="size"
                 class="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50">
-                <option value="" selected>Choose</option>
+                <option value="" selected>All</option>
                 <option>Small</option>
                 <option>Medium</option>
                 <option>Big</option>
@@ -46,7 +46,7 @@
 
               <select id="type" [(ngModel)]="type" name="type"
                 class="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50">
-                <option value="" selected>Choose</option>
+                <option value="" selected>All</option>
                 <option>White</option>
                 <option>Red</option>
                 <option>Gold</option>
@@ -55,7 +55,7 @@
           </div>
 
           <div class="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
-            <button (click)="reset()" type="reset"
+            <button (click)="reset()"
               class="rounded-md bg-gray-200 px-8 py-2 font-medium text-gray-700 outline-none hover:opacity-80 focus:ring">Reset</button>
             <button (click)="search()" type="submit"
               class="flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-gray-500 rounded-md hover:bg-gray-800  focus:outline-none focus:bg-gray-900  transition duration-300 transform active:scale-95 ease-in-out

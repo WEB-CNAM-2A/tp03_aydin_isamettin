@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ProductService } from '../services/product/product.service';
 
 @Component({
   selector: 'app-search-engine',
@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './search-engine.component.css'
 })
 export class SearchEngineComponent {
+  @Output() filterCriteria: EventEmitter<{ title: string, origin: string, size: string, type: string }> = new EventEmitter();
+
   title: string = '';
   image: string = '';
   price: number = 0;
@@ -17,20 +19,17 @@ export class SearchEngineComponent {
   size: string = '';
   type: string = '';
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private productService: ProductService) { }
 
   search() {
-    console.log('search');
-    console.log('title: ' + this.title);
-    console.log('origin: ' + this.origin);
-    console.log('size: ' + this.size);
-    console.log('type: ' + this.type);
+    this.filterCriteria.emit({ title: this.title, origin: this.origin, size: this.size, type: this.type });
   }
 
   reset() {
-    console.log('reset');
+    this.title = '';
+    this.origin = '';
+    this.size = '';
+    this.type = '';
+    this.search();
   }
 }
