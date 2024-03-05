@@ -4,11 +4,12 @@ import { Product } from '../models/product';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from "../products/products.component";
+import { SearchEngineComponent } from '../search-engine/search-engine.component';
 
 @Component({
   selector: 'app-product-catalog',
   standalone: true,
-  imports: [CommonModule, ProductsComponent],
+  imports: [CommonModule, ProductsComponent, SearchEngineComponent],
   templateUrl: './product-catalog.component.html',
   styleUrl: './product-catalog.component.css'
 })
